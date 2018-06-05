@@ -43,11 +43,11 @@ co(function * () {
     app.get('/v1/api', require('./utils/sendRamlDoc'));
 
     {
-        const {
+       /* const {
             middleware,
         } = yield* osprey();
 
-        app.use(middleware);
+        app.use(middleware);*/
         app.post('/v1/sign_up', require('./routes/v1/sign_up/post'));
         app.post('/v1/oauth/refresh', require('./handlers/user/refreshToken'));
         app.post('/v1/oauth/revoke', require('./handlers/user/revokeToken'));
@@ -62,6 +62,10 @@ co(function * () {
 
         if (config.thirdParty.linkedIn.clientId) {
             app.use('/v1/oauth/linkedin', require('./routes/v1/oauth/linkedin/router'));
+        }
+
+        if (config.thirdParty.google.clientId) {
+            app.use('/v1/oauth/google', require('./routes/v1/oauth/google/router'));
         }
     }
 

@@ -129,6 +129,35 @@ module.exports = co(function * () {
                         },
                     ],
                 },
+                {
+                    version: 1,
+                    'social.googleId': {
+                        $exists: true,
+                        $type: 'string',
+                    },
+                    $or: [
+                        {
+                            email: {
+                                $type: 'string',
+                            },
+                        },
+                        {
+                            meta: {
+                                $type: 'object',
+                            },
+                        },
+                        {
+                            'meta.firstName': {
+                                $type: 'string',
+                            },
+                        },
+                        {
+                            'meta.lastName': {
+                                $type: 'string',
+                            },
+                        },
+                    ],
+                },
             ],
         },
         validationLevel: 'strict',

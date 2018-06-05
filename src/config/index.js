@@ -47,6 +47,12 @@ config.thirdParty = {
         callbackURL: process.env.LINKED_IN_CALLBACK_URL,
         callbackURLThirdParty: process.env.LINKED_IN_CALLBACK_URL_THIRD_PARTY,
     },
+    google: {
+        clientId: process.env.GOOGLE_APP_ID,
+        clientSecret: process.env.GOOGLE_APP_SECRET,
+        callbackURL: process.env.GOOGLE_CALLBACK_URL,
+        callbackURLThirdParty: process.env.GOOGLE_CALLBACK_URL_THIRD_PARTY,
+    },
 };
 
 config.xOauthScopes = process.env.X_OAUTH_SCOPES;
